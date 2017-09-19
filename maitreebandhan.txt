@@ -1,3 +1,8 @@
+
+npm install <package>@<version>
+For example: npm install express@3.0.0
+
+--save --save-exact
 Your customer number: 156616519 
 24/7 support: 040-67607600
 http://www.vandelaydesign.com/jquery-form-validation-plugins/
@@ -44,12 +49,14 @@ git remote add origin https://github.com/siddmuk2005/maitreebandhaan.git
 ------
 git branch first_change
 git checkout first_change
-
+git push origin first_change
+git push -u origin first_change
 git pull https://github.com/siddmuk2005/maitreebandhaan.git first_change
 
 git branch	List branches (the asterisk denotes the current branch)
 git branch -a	List all branches (local and remote)
 git branch [branch name]	Create a new branch
+
 git branch -d [branch name]	Delete a branch
 git push origin --delete [branchName]	Delete a remote branch
 git checkout -b [branch name]	Create a new branch and switch to it
