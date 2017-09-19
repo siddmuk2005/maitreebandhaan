@@ -1,0 +1,6 @@
+service: default
+runtime: nodejs
+env: flex
+manual_scaling:
+  instances: 5
+env_variables:

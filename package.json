@@ -1,0 +1,40 @@
+{
+  "name": "maitreebandhaan",
+  "version": "1.0.0",
+  "description": "website for rightwing ideology",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "exceljs": "^0.5.1",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "formidable": "^1.1.1",
+    "google-cloud": "^0.56.0",
+    "google-maps": "^3.2.1",
+    "jade": "^1.11.0",
+    "lodash": "^4.0.1",
+    "multer": "^1.3.0",
+    "node-gallery": "^1.1.0",
+    "nodemailer": "^4.1.0",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "xoauth2": "^1.2.0",
+    "ya-csv": "^0.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "scripts": {
+    "test": "npm --version",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "maitreebandhaan"
+  ],
+  "author": "siddhartha mukherjee",
+  "license": "ISC",
+  "process.env.PORT": "8080"
+}

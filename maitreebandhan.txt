@@ -1,0 +1,35 @@
+Your customer number: 156616519 
+24/7 support: 040-67607600
+http://www.vandelaydesign.com/jquery-form-validation-plugins/
+
+gcloud app deploy --version 20170819t105825 --no-promote --project maitreebandhaan-176216
+
+https://www.google.co.in/search?q=kali+images+in+bengali&tbm=isch&tbs=rimg:CS_1rKIE3ghyoIjhWOnp1ksYLn4ED8G-C5NL7tmTGm985rgQQBnUo1w1AHhv8-3FRH4t8uPHcFjjy1NX9aqLXT_1unMioSCVY6enWSxgufEdrnrlhgHWC1KhIJgQPwb4Lk0vsRJ_1f5zcjQe7wqEgm2ZMab3zmuBBHaMrWnwhSdCioSCRAGdSjXDUAeEWj91vb88xv3KhIJG_1z7cVEfi3wRtn2a_1CzcupEqEgm48dwWOPLU1REAM-e5Ymo9XSoSCf1qotdP-6cyEeOKmE4hPtdu&tbo=u&sa=X&ved=0ahUKEwiH7_KStKnWAhVC42MKHSPpCOwQ9C8IHw&biw=1366&bih=613&dpr=1
+
+
+https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&cad=rja&uact=8&ved=0ahUKEwir6tevga3WAhXHx7wKHQv9ArcQFggvMAI&url=https%3A%2F%2Fcss-tricks.com%2Finfinite-all-css-scrolling-slideshow%2F&usg=AFQjCNFE6zJRnnZ1WnWHjT8OnD_R__aWtw
+
+
+maitreebandhaan-1
+
+push from local to cloud -
+
+gcloud init && git config credential.helper gcloud.cmd
+git remote add google https://source.developers.google.com/p/maitreebandhaan-1/r/maitreebandhaan
+git push --all google
+
+clone from cloud to local-
+
+gcloud init
+gcloud source repos clone maitreebandhaan --project=maitreebandhaan-176216
+cd maitreebandhaan
+
+you can mirror the code from bitbucket or github
+
+gcloud init
+gcloud source repos clone repo_name --project=proj_name
+cd repo_name
+gcloud app deploy
+
+deploying application to gcloud
+https://gist.github.com/kengz/c8d59ff0697bb00f71e1
