@@ -5,7 +5,7 @@ var router = express.Router();
 const config = require('../config/config.js')
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
-var xoauth2 = require('xoauth2');
+//var xoauth2 = require('xoauth2');
 
 //localhost:8080/mails
 router.get('/',function(req,res,next){
@@ -15,28 +15,17 @@ router.get('/',function(req,res,next){
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 // http://localhost:8080/mails/sendMail
-// send mail with defined transport object
+
 router.get('/sendMail', function(req, res,next){  
 
-	var transporter = nodemailer.createTransport(smtpTransport({
-		service: config.server,
+	var transporter = nodemailer.createTransport((smtpTransport({
+		service: 'Gmail',
+		secureConnection: false,
 		auth: {
-			xoauth2: xoauth2.createXOAuth2Generator({
-				user: config.user, // Your email id
-				clientId: config.clientId,
-				clientSecret:config.clientSecret,
-				refereshToken:config.refereshToken,
-				accessToken:config.accessToken
-			})
-		},
-		tls: {
-			rejectUnauthorized: false
-		},
-		maxConnections: 5,
-		maxMessages: 10
-
-	}));
-
+			user: config.fromEmailId,
+			pass: config.pass
+		}
+	})));
 
 	var mailOptions = {
 		from: 'Maitree Bandhaan' + ' &lt;' + config.fromEmailId  + '&gt;',
@@ -45,14 +34,12 @@ router.get('/sendMail', function(req, res,next){
 		html: '<h3>Dear MaitreeBandhaan</h3><p>'+ 'testing mailing application'+'</p>'
 	}
 
-	console.log(mailOptions);
-
 	transporter.sendMail(mailOptions, function(error, info){
 		if(error){
-				console.log("/sendmail error");
-				console.log(error);
-				res.sendStatus(500);
-				return;
+			console.log("/sendmail error \n");
+			console.log(error);
+			res.sendStatus(500);
+			return;
 		}else{
 			console.log("Message sent: " + info.response);
 			// if you don't want to use this transport object anymore, uncomment following line
