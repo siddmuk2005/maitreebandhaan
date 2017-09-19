@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
     "cookie-parser": "^1.4.3",
     "exceljs": "^0.5.1",
     "express": "^4.15.4",

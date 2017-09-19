@@ -1,12 +1,14 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
-var fs=require('fs');
+var fs=	     require('fs');
+var http =   require('http');
 var csv = require('ya-csv');
-    
-var filepath='./write.csv';
-
 const config = require('../config/config.js')
+    
+var filepath='./sharad_samman_another_backup.csv';
+
+var filepath2='./sharad_samman.csv';
 
 //localhost:8080/writeData
 router.get('/',function(req,res,next){
@@ -16,10 +18,10 @@ router.get('/',function(req,res,next){
 //localhost:8080/writeData/submitForm
 router.post('/submitForm', function(req, res,next){  
 
-	var body = req.body.name +', '+ req.body.email +', '+ req.body.mbnumber +', '+ req.body.message +' |';
+	var body = req.body.name +', '+ req.body.email +', '+ req.body.mbnumber +', '+ req.body.message +'\n';
 	console.log(body);
 	
-	var writer = csv.createCsvStreamWriter(fs.createWriteStream('./sharad_samman.csv', {'flags': 'a'})); 
+	var writer = csv.createCsvStreamWriter(fs.createWriteStream(filepath2, {'flags': 'a'})); 
 	
 	writer.writeRecord([req.body.name, req.body.email, req.body.mbnumber,req.body.message]);  
 	
@@ -30,19 +32,6 @@ router.post('/submitForm', function(req, res,next){
 		res.end();
     });
     
-});
-
-//localhost:8080/writeData
-router.get('/readFormDatas',function(req,res,next){
-	
-	fs.readFile('./sharad_samman.csv' , 'utf8', function (err,data) {
-	  if (err) {
-		return console.log(err);
-	  }
-	  console.log(data);
-	  res.write(data);
-	  res.end();
-	});
 });
 
 module.exports =router ;

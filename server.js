@@ -14,7 +14,8 @@ app.set('trust proxy', 1) // trust first proxy
 
 var routes=require('./routes/index');
 var mails=require('./routes/mails');
-var writeToFile=require('./routes/write_append');
+var writeFile=require('./routes/writeFile');
+var readFile=require('./routes/readFile');
 var config = require('./config/config')
 
 router.use(session({
@@ -61,7 +62,8 @@ router.get('/maitreebandhaan', function(req, res) {
 
 router.use("/",routes);
 router.use("/mails",mails);
-router.use("/writeData",writeToFile);
+router.use("/writeData",writeFile);
+router.use("/readData",readFile);
 
 router.use('/gallery', require('node-gallery')({
   staticFiles : 'public/img/mb_meetings',
