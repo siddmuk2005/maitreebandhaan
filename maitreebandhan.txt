@@ -33,3 +33,14 @@ gcloud app deploy
 
 deploying application to gcloud
 https://gist.github.com/kengz/c8d59ff0697bb00f71e1
+
+
+github commands to push project in github
+
+git init
+git add *.*
+git commit -m "comment for commit"
+git remote add origin https://github.com/siddmuk2005/maitreebandhaan.git
+------
+git branch first_change
+git checkout first_change
