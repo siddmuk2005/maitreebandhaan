@@ -16,7 +16,7 @@ router.get('/',function(req,res,next){
 
 // http://localhost:8080/mails/sendMail
 
-router.get('/sendMail', function(req, res,next){  
+router.post('/sendMail', function(req, res,next){  
 
 	var transporter = nodemailer.createTransport((smtpTransport({
 		service: 'Gmail',
@@ -26,12 +26,13 @@ router.get('/sendMail', function(req, res,next){
 			pass: config.pass
 		}
 	})));
-
+	var body = req.body.name +', '+ req.body.email +', '+ req.body.mbnumber +', '+ req.body.message +'\n';
+	
 	var mailOptions = {
 		from: 'Maitree Bandhaan' + ' &lt;' + config.fromEmailId  + '&gt;',
 		to: config.toEmailId,
 		subject: 'Sending Email from maitreebandhaan portal',
-		html: '<h3>Dear MaitreeBandhaan</h3><p>'+ 'testing mailing application'+'</p>'
+		html: '<h3>Dear MaitreeBandhaan</h3><p>'+ 'registration details are'+'</p> </br>'+'<p>'+body+'</p>'
 	}
 
 	transporter.sendMail(mailOptions, function(error, info){
@@ -45,7 +46,12 @@ router.get('/sendMail', function(req, res,next){
 			// if you don't want to use this transport object anymore, uncomment following line
 			socketTimeout: 30 * 1000 // 0.5 min: Time of inactivity until the connection is closed
 			transporter.close(); // shut down the connection pool, no more messages
-			res.sendStatus(200);
+			if(res.statusCode == 200){
+				res.write(body + '- mailed !!');
+			}else{
+				res.write(body + '- not mailed some error in server!');
+			}
+				res.end();
 		}
 		transporter.close();
 	});

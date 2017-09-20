@@ -3,6 +3,7 @@ npm install <package>@<version>
 For example: npm install express@3.0.0
 
 --save --save-exact
+
 Your customer number: 156616519 
 24/7 support: 040-67607600
 http://www.vandelaydesign.com/jquery-form-validation-plugins/
@@ -85,3 +86,16 @@ Command	Description
 git log	View changes
 git log --summary	View changes (detailed)
 git diff [source branch] [target branch}	Preview changes before merging
+
+
+git checkout master
+git pull               # to update the state to the latest remote master state
+git merge develop      # to bring changes to local master from your develop branch
+git push origin master # push current HEAD to remote master branchName
+
+$ git push origin develop:master
+or, more generally
+
+$ git push <remote> <local branch name>:<remote branch to push into>
+
+https://stackoverflow.com/questions/5643321/how-to-make-remote-rest-call-inside-node-js-any-curl

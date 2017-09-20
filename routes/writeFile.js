@@ -5,7 +5,7 @@ var fs=	     require('fs');
 var http =   require('http');
 var csv = require('ya-csv');
 const config = require('../config/config.js')
-    
+var request = require('request');
 var filepath='./sharad_samman_another_backup.csv';
 
 var filepath2='./sharad_samman.csv';
@@ -28,10 +28,15 @@ router.post('/submitForm', function(req, res,next){
 	fs.appendFile(filepath , body ,function(err) {
 		if (err) 
 			console.log(err);;
-		res.write(body + '- saved');
-		res.end();
     });
     
+	if(res.statusCode == 200){
+		res.write(body + '- saved !!');
+	}else{
+		res.write(body + '- not saved some error in server!');
+	}
+	res.end();
+
 });
 
 module.exports =router ;

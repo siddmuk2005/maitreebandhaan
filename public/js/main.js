@@ -189,7 +189,35 @@ $(".slideshow > div:gt(0)").hide();
             .appendTo('#slideshow');
     }, 3000);
 	
+	
+	$('#emailSubmit').on('click', function(e) {
+          var request_data = $(this).attr('id');
+		  var name = $('#name').val();
+		  var email = $('#email').val();
+	      var mbnumber = $('#mbnumber').val();
+	      var message = $('#message').val();
+
+		  
+		  $.ajax({
+            type: "POST",
+            url: "/mails/sendMail",
+            timeout: 10000,
+            data: { name: name , email:email, mbnumber:mbnumber, message:message },
+            success: function(data) {
+                //show content
+                console.log("requested mail data complete");
+            },
+            error: function(jqXHR, textStatus, err) {
+                //show error message
+                alert('mail sent '+textStatus+', err '+err)
+            }
+        });
+		  console.log("entered in jquery");
+    });
+
+	
 }); // jquery end here
+
 
 
 
