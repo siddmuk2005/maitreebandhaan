@@ -45,7 +45,7 @@ router.post('/sendMail', function(req, res,next){
 			console.log("Message sent: " + info.response);
 			// if you don't want to use this transport object anymore, uncomment following line
 			socketTimeout: 30 * 1000 // 0.5 min: Time of inactivity until the connection is closed
-			transporter.close(); // shut down the connection pool, no more messages
+			
 			if(res.statusCode == 200){
 				res.write(body + '- mailed !!');
 			}else{
@@ -53,7 +53,7 @@ router.post('/sendMail', function(req, res,next){
 			}
 				res.end();
 		}
-		transporter.close();
+		transporter.close(); // shut down the connection pool, no more messages
 	});
 
 });
