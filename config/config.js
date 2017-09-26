@@ -3,7 +3,7 @@ var config = module.exports ={}
 
 config.server='gmail'
 config.user= 'sidd2005muk@gmail.com' // Your email id
-config.pass='year2007'
+config.pass='*******'
 config.clientId= '951458967591-2atslsdqgg771oe2o0bpdj2j5l35gs73.apps.googleusercontent.com'
 config.clientSecret='281xuSTOWYRmnmeurhBO9wpK'
 config.refereshToken='1/nNSR8dXOO-cmk2baMwd2_v1Kncu9q57RmbzlVOmnu1w'
