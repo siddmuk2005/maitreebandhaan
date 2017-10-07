@@ -1,0 +1,39 @@
+{
+  "name": "maitreebandhaan",
+  "version": "1.0.0",
+  "description": "website to unite Hindu",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "compression": "1.7.0",
+    "cookie-parser": "1.4.3",
+    "cool-ascii-faces": "1.3.4",
+    "exceljs": "0.5.1",
+    "express": "4.15.4",
+    "express-session": "1.15.5",
+    "formidable": "1.1.1",
+    "nodemailer": "1.4.0",
+    "nodemailer-smtp-transport": "2.7.4",
+    "request": "2.82.0",
+    "ya-csv": "0.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "1.12.1"
+  },
+  "engines": {
+    "node": "6.11.2",
+	"npm": "3.10.10"
+  },
+  "scripts": {
+    "test": "npm --version",
+    "start": "node server.js",
+	"heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
+	"heroku-postbuild": "echo This runs afterwards."
+  },
+  "keywords": [
+    "maitreebandhaan"
+  ],
+  "author": "siddhartha mukherjee",
+  "license": "ISC",
+  "process.env.PORT": "5000"
+}

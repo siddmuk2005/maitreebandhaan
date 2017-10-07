@@ -1,0 +1,128 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "viewerjs",
+        "scope": null,
+        "escapedName": "viewerjs",
+        "name": "viewerjs",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "F:\\maitreebandhaan"
+    ]
+  ],
+  "_from": "viewerjs@latest",
+  "_id": "viewerjs@0.7.2",
+  "_inCache": true,
+  "_location": "/viewerjs",
+  "_nodeVersion": "8.2.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/viewerjs-0.7.2.tgz_1503126578909_0.3303565743844956"
+  },
+  "_npmUser": {
+    "name": "fengyuanchen",
+    "email": "chenfengyuan@outlook.com"
+  },
+  "_npmVersion": "5.3.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "viewerjs",
+    "scope": null,
+    "escapedName": "viewerjs",
+    "name": "viewerjs",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npmjs.org/viewerjs/-/viewerjs-0.7.2.tgz",
+  "_shasum": "71c87eb15c47e7b329362673ab0820d5a30a32e9",
+  "_shrinkwrap": null,
+  "_spec": "viewerjs",
+  "_where": "F:\\maitreebandhaan",
+  "author": {
+    "name": "Fengyuan Chen",
+    "url": "http://chenfengyuan.com"
+  },
+  "bugs": {
+    "url": "https://github.com/fengyuanchen/viewerjs/issues"
+  },
+  "dependencies": {},
+  "description": "JavaScript image viewer.",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "cssnano": "^3.10.0",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "node-qunit-phantomjs": "^1.5.0",
+    "npm-run-all": "^4.0.2",
+    "postcss-cli": "^4.1.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-url": "^7.1.2",
+    "rollup": "^0.47.6",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-watch": "^4.3.1",
+    "uglify-js": "^3.0.27"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-3tF3w6uqH7xj5T8SRtT8VoEbg6GkT9pcb03WpXJn1Z3xL7GAJD5EWInoekeUY9Qfvzjp0fUbPaYIYRcX+blWJg==",
+    "shasum": "71c87eb15c47e7b329362673ab0820d5a30a32e9",
+    "tarball": "https://registry.npmjs.org/viewerjs/-/viewerjs-0.7.2.tgz"
+  },
+  "gitHead": "c731386f3a35a66f03c0c898cf87c081dc1f41d7",
+  "homepage": "https://fengyuanchen.github.io/viewerjs",
+  "keywords": [
+    "image",
+    "view",
+    "viewer",
+    "viewerjs",
+    "viewer.js",
+    "html",
+    "css",
+    "javascript",
+    "front-end",
+    "web",
+    "component",
+    "development"
+  ],
+  "license": "MIT",
+  "main": "dist/viewer.js",
+  "maintainers": [
+    {
+      "name": "fengyuanchen",
+      "email": "cfy.org@gmail.com"
+    }
+  ],
+  "name": "viewerjs",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengyuanchen/viewerjs.git"
+  },
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "postcss src/css/viewer.css --no-map -o dist/viewer.css",
+    "build:js": "rollup -c",
+    "compress": "npm run compress:css && npm run compress:js",
+    "compress:css": "postcss dist/viewer.css -u cssnano --no-map -o dist/viewer.min.css",
+    "compress:js": "uglifyjs dist/viewer.js -o dist/viewer.min.js -c -m --comments /^!/",
+    "lint": "eslint src/js",
+    "postbuild": "npm test && npm run compress && node build",
+    "prebuild": "npm run lint",
+    "start": "npm-run-all --parallel watch:*",
+    "test": "node-qunit-phantomjs test/index.html --timeout 10",
+    "watch:css": "postcss src/css/viewer.css -o dist/viewer.css -w",
+    "watch:js": "rollup -c -w -m"
+  },
+  "version": "0.7.2"
+}

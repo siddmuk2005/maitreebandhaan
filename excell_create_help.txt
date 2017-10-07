@@ -1,0 +1,159 @@
+npm install exceljs
+
+var Excel = require('exceljs');
+var workbook = new Excel.Workbook();
+
+workbook.creator = 'Me';
+workbook.lastModifiedBy = 'Her';
+workbook.created = new Date(1985, 8, 30);
+workbook.modified = new Date();
+workbook.lastPrinted = new Date(2016, 9, 27);
+// Set workbook dates to 1904 date system 
+workbook.properties.date1904 = true;
+
+workbook.views = [
+  {
+    x: 0, y: 0, width: 10000, height: 20000, 
+    firstSheet: 0, activeTab: 1, visibility: 'visible'
+  }
+]
+
+var sheet = workbook.addWorksheet('My Sheet');
+
+// create a sheet with red tab colour 
+sheet = workbook.addWorksheet('My Sheet', {properties:{tabColor:{argb:'FFC0000'}}});
+ 
+// create a sheet where the grid lines are hidden 
+sheet = workbook.addWorksheet('My Sheet', {properties: {showGridLines: false}});
+ 
+// create a sheet with the first row and column frozen 
+sheet = workbook.addWorksheet('My Sheet', {views:[{xSplit: 1, ySplit:1}]});
+
+sheet =  workbook.addWorksheet('sheet', {
+  pageSetup:{paperSize: 9, orientation:'landscape'}
+});
+ 
+// create a new sheet writer with pageSetup settings for fit-to-page 
+var worksheetWriter = workbookWriter.addSheet('sheet', {
+  pageSetup:{fitToPage: true, fitToHeight: 5, fitToWidth: 7}
+});
+ 
+// adjust pageSetup settings afterwards 
+sheet.pageSetup.margins = {
+  left: 0.7, right: 0.7, 
+  top: 0.75, bottom: 0.75, 
+  header: 0.3, footer: 0.3
+};
+ 
+// Set Print Area for a sheet 
+sheet.pageSetup.printArea = 'A1:G20';
+ 
+// Repeat specific rows on every printed page 
+sheet.pageSetup.printTitlesRow = '1:3';
+
+sheet.views = [
+    {state: 'frozen', xSplit: 2, ySplit: 3, topLeftCell: 'G10', activeCell: 'A1'}
+];
+
+
+worksheet.columns = [
+    { header: 'Name', key: 'name', width: 30 },
+    { header: 'Number', key: 'number', width: 10 },
+    { header: 'email', key: 'email', width: 30 }
+	{ header: 'address', key: 'address', width: 100 }
+];
+
+
+sheet.addRow({
+   id: i,
+   name: theName,
+   etc: someOtherDetail
+});
+sheet.commit();
+
+// Add a couple of Rows by key-value, after the last current row, using the column keys 
+worksheet.addRow({id: 1, name: 'John Doe', dob: new Date(1970,1,1)});
+worksheet.addRow({id: 2, name: 'Jane Doe', dob: new Date(1965,1,7)});
+ 
+// Add a row by contiguous Array (assign to columns A, B & C) 
+worksheet.addRow([3, 'Sam', new Date()]);
+ 
+// Add a row by sparse Array (assign to columns A, E & I) 
+var rowValues = [];
+rowValues[1] = 4;
+rowValues[5] = 'Kyle';
+rowValues[9] = new Date();
+worksheet.addRow(rowValues);
+ 
+// Add an array of rows 
+var rows = [
+    [5,'Bob',new Date()], // row by array 
+    {id:6, name: 'Barbara', dob: new Date()}
+];
+worksheet.addRows(rows);
+ 
+ console.log('Row ' + rowNumber + ' = ' + JSON.stringify(row.values));
+
+ ws.columns = [
+    { header: 'Id', key: 'id', width: 10 },
+    { header: 'Name', key: 'name', width: 32, style: { font: { name: 'Arial Black' } } },
+    { header: 'D.O.B.', key: 'DOB', width: 10, style: { numFmt: 'dd/mm/yyyy' } }
+];
+ 
+
+sheet.addRow({
+   id: i,
+   name: theName,
+   etc: someOtherDetail
+}).commit();
+
+sheet.commit()
+  .then(function() {
+    // the stream has been written 
+  });
+
+  
+  
+  / read from a file 
+var workbook = new Excel.Workbook();
+workbook.xlsx.readFile(filename)
+    .then(function() {
+        // use workbook 
+    });
+ 
+// pipe from stream 
+var workbook = new Excel.Workbook();
+stream.pipe(workbook.xlsx.createInputStream());
+Writing XLSX
+// write to a file 
+var workbook = createAndFillWorkbook();
+workbook.xlsx.writeFile(filename)
+    .then(function() {
+        // done 
+    });
+ 
+// write to a stream 
+workbook.xlsx.write(stream)
+    .then(function() {
+        // done 
+    });
+// construct a streaming XLSX workbook writer with styles and shared strings 
+var options = {
+    filename: './streamed-workbook.xlsx',
+    useStyles: true,
+    useSharedStrings: true
+};
+var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
+
+
+var workbook = new Excel.Workbook(); 
+workbook.xlsx.readFile(filename)
+    .then(function() {
+        var worksheet = workbook.getWorksheet(sheet);
+        worksheet.eachRow({ includeEmpty: true }, function(row, rowNumber) {
+          console.log("Row " + rowNumber + " = " + JSON.stringify(row.values));
+        });
+    });
+
+	
+	https://stackoverflow.com/questions/35272928/creating-transform-stream-using-exceljs-for-writing-xlsx
