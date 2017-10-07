@@ -9,7 +9,7 @@ var nodemailer = require('nodemailer');
 var formidable = require("formidable");
 var util = require('util');
 var cookieParser = require('cookie-parser')
-var session = require('express-session')
+//var session = require('express-session')
 var cool = require('cool-ascii-faces');
 app.set('trust proxy', 1) // trust first proxy 
 
@@ -19,20 +19,20 @@ var writeFile=require('./routes/writeFile');
 var readFile=require('./routes/readFile');
 var config = require('./config/config')
 
-router.use(session({
+/*router.use(session({
     secret: 'cookie_secret',
     name: 'cookie_name',
     //store: 'hello', // connect-mongo session store
     proxy: true,
     resave: true,
     saveUninitialized: true
-}));
+}));*/
 
 app.set('port',process.env.PORT||5000);
 app.set('views',__dirname + '/views');
 app.set('view engine', 'jade');
 router.use(cookieParser());
-router.use(session({secret:"xyzlmnt"}));
+//router.use(session({secret:"xyzlmnt"}));
 router.use(express.static(path.join(__dirname, 'public')));
 
 var bodyParser = require('body-parser');
