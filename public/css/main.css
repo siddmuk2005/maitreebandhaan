@@ -494,14 +494,14 @@ h1.navbar-brand {
 }
 
 .fancybox-next span {
-    background: url("/../public/img/right.png") no-repeat scroll center center #009ee3;
+    background: url("../img/right.png") no-repeat scroll center center #009ee3;
     height: 50px;
     width: 50px;
     right: 0;
 }
 
 .fancybox-prev span {
-    background: url("/../public/img/left.png") no-repeat scroll center center #009ee3;
+    background: url("../img/left.png") no-repeat scroll center center #009ee3;
     height: 50px;
     width: 50px;
     left: 0;
@@ -739,7 +739,7 @@ ul.external li a:hover {
 // change testimonial pic from here
 
 #testimonials {
-    background-image: url(/../public/img/parallax/testimonial.jpg);
+    background-image: url(../img/parallax/testimonial.jpg);
     padding: 0;
     color: #fff;
 }
@@ -909,12 +909,12 @@ ul.external li a:hover {
 ==================================================================*/
 
 #social {
-    background-image: url(/../public/img/slider/banner.jpg);
+    background-image: url(../img/slider/banner.jpg);
     padding: 0;
 }
 
 #social .overlay {
-    background: url("/../public/img/slide_bg.png") repeat scroll 0 0 transparent;
+    background: url("../img/slide_bg.png") repeat scroll 0 0 transparent;
     padding: 100px 0 120px;
 }
 
