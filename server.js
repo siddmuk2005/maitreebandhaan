@@ -35,11 +35,11 @@ router.use(cookieParser());
 //router.use(session({secret:"xyzlmnt"}));
 //router.use(express.static(path.join(__dirname, '../public')));
 //router.use(express.static(path.normalize(path.join(__dirname, '../public')), { maxAge: 86400000 }));
-router.use(express.static(__dirname + '/public'));
+//router.use(express.static(__dirname + '/public'));
 
-//process.env.PWD = process.cwd();
-//app.set('views', path.join(process.env.PWD, 'public'));
-//router.use(express.static(path.join(process.env.PWD, 'public')));
+process.env.PWD = process.cwd();
+app.set('views', path.join(process.env.PWD, 'public'));
+router.use(express.static(path.join(process.env.PWD, 'public')));
 
 
 var bodyParser = require('body-parser');
