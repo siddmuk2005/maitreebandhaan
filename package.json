@@ -18,6 +18,9 @@
     "request": "2.82.0",
     "ya-csv": "0.10.1"
   },
+  "repository": {
+    "url": ""
+  },
   "devDependencies": {
     "nodemon": "^1.12.1"
   },

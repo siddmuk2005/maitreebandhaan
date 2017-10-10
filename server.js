@@ -28,9 +28,14 @@ var config = require('./config/config')
     saveUninitialized: true
 }));*/
 
-app.set('port',process.env.PORT||5000);
+port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 5000,
+host = process.env.OPENSHIFT_NODEJS_IP;
+
+
+//app.set('port',process.env.PORT||5000);
 app.set('views',__dirname + '/views');
 app.set('view engine', 'jade');
+app.use(express.static('./'));
 router.use(cookieParser());
 //router.use(session({secret:"xyzlmnt"}));
 router.use(express.static(path.join(__dirname, 'public')));
@@ -40,14 +45,16 @@ router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 
-var server = http.createServer(app).listen(app.get('port' ), function () {
+/*var server = http.createServer(app).listen(app.get('port' ), function () {
    var host = server.address().address ;
    var port = server.address().port;
    
    console.log("Example app listening at http://%s:%s", host, port);
    console.log("its working");
    
-});
+});*/
+
+app.listen(port, host);
 
 server.on('error',onError);
 server.on('listening',onListening);
