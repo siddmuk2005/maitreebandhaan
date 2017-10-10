@@ -38,8 +38,8 @@ router.use(cookieParser());
 //router.use(express.static(__dirname + '/public'));
 
 process.env.PWD = process.cwd();
-app.set('views', path.join(process.env.PWD, 'public'));
-router.use(express.static(path.join(process.env.PWD, 'public')));
+app.set('views', path.join(__dirname, 'public'));
+router.use(express.static(path.join(__dirname, 'public')));
 
 
 var bodyParser = require('body-parser');
