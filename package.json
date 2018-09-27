@@ -28,11 +28,11 @@
     "nodemon": "^1.12.1"
   },
   "engines": {
-    "node": "4.3.2"
+    "node": "4.8.7"
   },
   "scripts": {
     "test": "npm --version",
-    "start": "node server.js"
+    "start": "node --optimize_for_size --max_old_space_size=1500 --gc_interval=100 server.js"
   },
   "keywords": [
     "maitreebandhaan"
