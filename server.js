@@ -60,6 +60,12 @@ router.get('/maitreebandhaan', function(req, res) {
 	console.log(req.cookie);
 });
 
+router.get('/privacy-policy', function(req, res) {
+    res.sendFile('/privacy-policy.html', {root: __dirname });
+	console.log(req.cookie);
+});
+
+
 router.use("/",routes);
 router.use("/mails",mails);
 router.use("/writeData",writeFile);
